@@ -5,25 +5,20 @@
 <h1 align="center">VIZIOON LAB ENVIRONMENTS</h1>
 
 <p align="center">
-  <a href="https://dvizioon.github.io/VIZIOON-LABENVIRONMENTS/docs/intro">
-    <img src="https://img.shields.io/badge/📖_Documentação-0B4692?style=for-the-badge" alt="Ir para documentação" />
-  </a>
-</p>
-
-<p align="center">
-  <img src="https://img.shields.io/badge/VUE-4FC08D?style=for-the-badge&logo=vuedotjs&logoColor=white" alt="Vue" />
-  <img src="https://img.shields.io/badge/TYPESCRIPT-3178C6?style=for-the-badge&logo=typescript&logoColor=white" alt="TypeScript" />
-  <img src="https://img.shields.io/badge/VITE-646CFF?style=for-the-badge&logo=vite&logoColor=white" alt="Vite" />
-  <img src="https://img.shields.io/badge/TailwindCss-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white" alt="Tailwind" />
-  <img src="https://img.shields.io/badge/PINIA-yellow?style=for-the-badge&logo=vue.js&logoColor=white" alt="Pinia" />
-  <img src="https://img.shields.io/badge/CHROME_EXTENSION-4285F4?style=for-the-badge&logo=googlechrome&logoColor=white" alt="Chrome Extension" />
-  <img src="https://img.shields.io/badge/GITLAB-FC6D26?style=for-the-badge&logo=gitlab&logoColor=white" alt="GitLab" />
-  <img src="https://img.shields.io/badge/DOCUSAURUS-3ECC5F?style=for-the-badge&logo=docusaurus&logoColor=white" alt="Docusaurus" />
-</p>
-
-<p align="center">
   Extensão para <strong>Chrome</strong> e <strong>Edge</strong> que importa variáveis de ambiente (<code>.env</code>)<br />
   direto na página <strong>CI/CD → Variables</strong> do GitLab.
+</p>
+
+![VUE](https://img.shields.io/badge/VUE-4FC08D?style=for-the-badge&logo=vuedotjs&logoColor=white) ![TYPESCRIPT](https://img.shields.io/badge/TYPESCRIPT-3178C6?style=for-the-badge&logo=typescript&logoColor=white) ![VITE](https://img.shields.io/badge/VITE-646CFF?style=for-the-badge&logo=vite&logoColor=white) ![TAILWINDCSS](https://img.shields.io/badge/TailwindCss-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white) ![PINIA](https://img.shields.io/badge/PINIA-yellow?style=for-the-badge&logo=vue.js&logoColor=white) ![CHROME](https://img.shields.io/badge/CHROME_EXTENSION-4285F4?style=for-the-badge&logo=googlechrome&logoColor=white) ![GITLAB](https://img.shields.io/badge/GITLAB-FC6D26?style=for-the-badge&logo=gitlab&logoColor=white) ![DOCUSAURUS](https://img.shields.io/badge/DOCUSAURUS-3ECC5F?style=for-the-badge&logo=docusaurus&logoColor=white)
+
+---
+
+## Documentação
+
+<p align="center">
+  <a href="https://dvizioon.github.io/VIZIOON-LABENVIRONMENTS/docs/intro">
+    <img src="https://img.shields.io/badge/Documentação-0B4692?style=for-the-badge" alt="Ir para documentação" />
+  </a>
 </p>
 
 ---
