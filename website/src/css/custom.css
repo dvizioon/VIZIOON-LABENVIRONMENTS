@@ -638,18 +638,25 @@
   padding: 0 0.35rem 0 0.15rem;
 }
 
-.navbar-github-link__label {
+.navbar-contato-link {
+  padding: 0 0.15rem 0 0.35rem;
+}
+
+.navbar-github-link__label,
+.navbar-contato-link__label {
   display: inline-flex;
   align-items: center;
   line-height: 1;
 }
 
-.navbar-github-link__icon {
+.navbar-github-link__icon,
+.navbar-contato-link__icon {
   width: 1.35rem;
   height: 1.35rem;
 }
 
-.navbar-github-link:hover .navbar-github-link__icon {
+.navbar-github-link:hover .navbar-github-link__icon,
+.navbar-contato-link:hover .navbar-contato-link__icon {
   color: #1b75c1;
 }
 
