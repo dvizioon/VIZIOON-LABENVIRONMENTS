@@ -1,5 +1,7 @@
 ---
 title: Configurações
+sidebar_custom_props:
+  icon: ph:gear-six-fill
 ---
 
 import Screenshot from '@site/src/components/Screenshot';

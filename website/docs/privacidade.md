@@ -1,11 +1,11 @@
 ---
 title: Política de Privacidade
 slug: /privacidade
+sidebar_custom_props:
+  icon: ph:shield-check-fill
 ---
 
 # Política de Privacidade
-
-**VIZIOON LAB ENVIRONMENTS** — última atualização: junho de 2026.
 
 ## Resumo
 
@@ -31,8 +31,4 @@ A extensão precisa acessar páginas do GitLab para exibir a barra lateral e pre
 
 ## Contato
 
-Dúvidas: [github.com/dvizioon/VIZIOON-LABENVIRONMENTS/issues](https://github.com/dvizioon/VIZIOON-LABENVIRONMENTS/issues).
-
-## Alterações
-
-Atualizações desta política serão publicadas nesta página.
+Dúvidas: [danielmartinsjob@gmail.com](mailto:danielmartinsjob@gmail.com)

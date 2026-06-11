@@ -1,5 +1,7 @@
 ---
 title: Histórico
+sidebar_custom_props:
+  icon: ph:clock-counter-clockwise-fill
 ---
 
 import Screenshot from '@site/src/components/Screenshot';
@@ -28,7 +30,7 @@ O botão **Usar** recoloca aquela importação na fila da aba Variáveis, no mes
 
 ## Exportar e importar
 
-Você pode baixar o histórico em JSON ou carregar um arquivo exportado antes. Serve para backup ou para levar a configuração para outro computador.
+Você pode exportar o histórico em arquivo ou importar um que já tenha salvo antes. Serve para backup ou para usar em outro computador.
 
 ## Limpar
 

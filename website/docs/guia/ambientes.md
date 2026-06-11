@@ -1,5 +1,7 @@
 ---
 title: Ambientes (abas)
+sidebar_custom_props:
+  icon: ph:cloud-fill
 ---
 
 import Screenshot from '@site/src/components/Screenshot';

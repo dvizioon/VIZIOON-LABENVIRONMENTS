@@ -1,5 +1,7 @@
 ---
 title: Variáveis
+sidebar_custom_props:
+  icon: ph:squares-four-fill
 ---
 
 import Screenshot from '@site/src/components/Screenshot';

@@ -38,7 +38,6 @@ const config: Config = {
         docs: {
           routeBasePath: 'docs',
           sidebarPath: './sidebars.ts',
-          editUrl: `https://github.com/${org}/${project}/tree/main/website/`,
         },
         blog: false,
         theme: {
@@ -63,8 +62,14 @@ const config: Config = {
           label: 'Documentação',
         },
         {
-          href: `https://github.com/${org}/${project}`,
-          label: 'GitHub',
+          type: 'doc',
+          docId: 'versoes',
+          position: 'left',
+          label: 'Versões',
+        },
+        {
+          href: 'mailto:danielmartinsjob@gmail.com',
+          label: 'Contato',
           position: 'right',
         },
       ],
@@ -76,19 +81,18 @@ const config: Config = {
           title: 'Documentação',
           items: [
             { label: 'Começar', to: '/docs/intro' },
+            { label: 'Instalação', to: '/docs/instalacao' },
+            { label: 'Navegadores', to: '/docs/navegadores' },
+            { label: 'Versões', to: '/docs/versoes' },
             { label: 'Privacidade', to: '/docs/privacidade' },
           ],
         },
         {
-          title: 'Projeto',
+          title: 'Contato',
           items: [
             {
-              label: 'Repositório',
-              href: `https://github.com/${org}/${project}`,
-            },
-            {
-              label: 'Releases',
-              href: `https://github.com/${org}/${project}/releases`,
+              label: 'E-mail',
+              href: 'mailto:danielmartinsjob@gmail.com',
             },
           ],
         },

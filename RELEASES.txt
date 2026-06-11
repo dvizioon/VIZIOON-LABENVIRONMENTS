@@ -1,0 +1,30 @@
+VIZIOON LAB ENVIRONMENTS — notas de release
+==========================================
+
+Cole o bloco da versão na descrição da release do GitHub.
+Anexe o zip da pasta dist/ (npm run build na raiz do projeto).
+
+
+v0.1.0
+------
+
+### Novidades
+
+- Importação de .env na página GitLab CI/CD Variables
+- Abas de ambiente com prefixo (Padrão, produção, homologação…)
+- Fila com Protected e preenchimento na página
+- Histórico local com exportar, importar JSON e Usar
+- Auto-save e botão flutuante configuráveis no popup
+- Aceite de privacidade salvo após primeira ativação
+
+### Instalação
+
+1. Baixe o arquivo da release (dist.zip)
+2. Extraia a pasta dist
+3. Abra chrome://extensions ou edge://extensions
+4. Ative Modo do desenvolvedor
+5. Carregar sem compactação → selecione a pasta dist
+
+### Documentação
+
+https://dvizioon.github.io/VIZIOON-LABENVIRONMENTS/

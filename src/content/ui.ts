@@ -3,7 +3,7 @@ import { createPinia } from 'pinia'
 import { addCollection } from '@iconify/vue'
 import phIcons from '@iconify-json/ph/icons.json'
 import FloatingShell from './FloatingShell.vue'
-import { STORAGE_KEY, type AppSettings } from '@/stores/settingsStore'
+import { STORAGE_KEY, normalizeSettings } from '@/stores/settingsStore'
 import '@/style.css'
 
 addCollection(phIcons)
@@ -14,8 +14,7 @@ let rootEl: HTMLElement | null = null
 async function isFloatingEnabled(): Promise<boolean> {
   try {
     const result = await chrome.storage.local.get(STORAGE_KEY)
-    const saved = result[STORAGE_KEY] as AppSettings | undefined
-    return saved?.floatingButtonEnabled !== false
+    return normalizeSettings(result[STORAGE_KEY]).floatingButtonEnabled
   } catch {
     return true
   }

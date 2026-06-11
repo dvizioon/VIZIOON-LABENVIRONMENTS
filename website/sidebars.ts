@@ -4,18 +4,21 @@ const sidebars: SidebarsConfig = {
   docs: [
     'intro',
     'instalacao',
+    'navegadores',
     {
       type: 'category',
       label: 'Guia',
       collapsed: false,
+      customProps: { icon: 'ph:map-trifold-fill' },
       items: [
         'guia/variaveis',
         'guia/ambientes',
         'guia/historico',
         'guia/configuracoes',
-        'guia/sobre',
       ],
     },
+    'sobre',
+    'versoes',
     'privacidade',
   ],
 }

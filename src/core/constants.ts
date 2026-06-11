@@ -20,5 +20,6 @@ export const DEVELOPER_EMAIL = 'danielmartinsjob@gmail.com'
 export const GITHUB_USER = 'dvizioon'
 export const GITHUB_REPO = 'VIZIOON-LABENVIRONMENTS'
 export const GITHUB_URL = `https://github.com/${GITHUB_USER}/${GITHUB_REPO}`
+export const PRIVACY_URL = `https://${GITHUB_USER}.github.io/${GITHUB_REPO}/docs/privacidade`
 export const GITHUB_RELEASES_URL = `${GITHUB_URL}/releases`
 export const GITHUB_API_RELEASES = `https://api.github.com/repos/${GITHUB_USER}/${GITHUB_REPO}/releases`

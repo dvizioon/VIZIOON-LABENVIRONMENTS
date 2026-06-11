@@ -4,12 +4,14 @@ import { storeToRefs } from 'pinia'
 import { useHistoryStore, type HistoryEntry } from '@/stores/historyStore'
 import { useImportStore } from '@/stores/importStore'
 import { useEnvTabsStore } from '@/stores/envTabsStore'
+import { useSettingsStore } from '@/stores/settingsStore'
 import { useToast } from '@/composables/useToast'
 import VzIcon from '@/components/VzIcon.vue'
 
 const history = useHistoryStore()
 const importStore = useImportStore()
 const envTabs = useEnvTabsStore()
+const settings = useSettingsStore()
 const { show } = useToast()
 const { entries } = storeToRefs(history)
 
@@ -93,7 +95,9 @@ async function onImportFile(e: Event) {
   ;(e.target as HTMLInputElement).value = ''
 }
 
-function useEntry(entry: HistoryEntry) {
+async function useEntry(entry: HistoryEntry) {
+  if (!settings.loaded) await settings.load()
+
   const tabExists = envTabs.tabs.some((t) => t.id === entry.envTabId)
   const tabId = tabExists ? entry.envTabId : envTabs.activeTabId
 
@@ -106,6 +110,12 @@ function useEntry(entry: HistoryEntry) {
   envTabs.saveQueue(tabId, entry.fileName, [...importStore.pairs])
 
   window.dispatchEvent(new CustomEvent('vizioon:set-tab', { detail: 'variables' }))
+
+  if (settings.autoSave) {
+    window.dispatchEvent(new CustomEvent('vizioon:apply-queue'))
+    return
+  }
+
   show(`${entry.pairs.length} variáveis carregadas na fila`, 'success')
 }
 

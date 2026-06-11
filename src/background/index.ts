@@ -1,15 +1,12 @@
 import { BRAND_BLUE_DARK } from '@/core/constants'
-import { STORAGE_KEY, type AppSettings } from '@/stores/settingsStore'
+import { STORAGE_KEY, normalizeSettings, type AppSettings } from '@/stores/settingsStore'
 
 async function loadSettings(): Promise<AppSettings> {
   try {
     const data = await chrome.storage.local.get(STORAGE_KEY)
-    return (data[STORAGE_KEY] as AppSettings) ?? {
-      autoSave: false,
-      floatingButtonEnabled: true,
-    }
+    return normalizeSettings(data[STORAGE_KEY])
   } catch {
-    return { autoSave: false, floatingButtonEnabled: true }
+    return normalizeSettings(undefined)
   }
 }
 
@@ -82,8 +79,8 @@ chrome.tabs.onActivated.addListener(async ({ tabId }) => {
 
 chrome.storage.onChanged.addListener((changes, area) => {
   if (area !== 'local' || !changes[STORAGE_KEY]) return
-  const oldVal = changes[STORAGE_KEY].oldValue as AppSettings | undefined
-  const newVal = changes[STORAGE_KEY].newValue as AppSettings | undefined
+  const oldVal = normalizeSettings(changes[STORAGE_KEY].oldValue)
+  const newVal = normalizeSettings(changes[STORAGE_KEY].newValue)
   if (oldVal?.floatingButtonEnabled === newVal?.floatingButtonEnabled) return
   broadcastFloatingEnabled(newVal?.floatingButtonEnabled !== false)
 })
@@ -92,7 +89,7 @@ chrome.runtime.onMessage.addListener((message, _sender, sendResponse) => {
   if (message.type === 'SET_FLOATING_ENABLED') {
     ;(async () => {
       const data = await chrome.storage.local.get(STORAGE_KEY)
-      const prev = (data[STORAGE_KEY] as AppSettings) ?? {}
+      const prev = normalizeSettings(data[STORAGE_KEY])
       const enabled = !!message.enabled
       await chrome.storage.local.set({
         [STORAGE_KEY]: { ...prev, floatingButtonEnabled: enabled },

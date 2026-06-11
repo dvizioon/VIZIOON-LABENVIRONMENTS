@@ -24,6 +24,69 @@ const defaultTab = (): EnvTab => ({
   isDefault: true,
 })
 
+function isEnvTab(value: unknown): value is EnvTab {
+  if (!value || typeof value !== 'object' || Array.isArray(value)) return false
+  const t = value as Record<string, unknown>
+  return (
+    typeof t.id === 'string' &&
+    typeof t.label === 'string' &&
+    typeof t.prefix === 'string' &&
+    typeof t.isDefault === 'boolean'
+  )
+}
+
+function normalizeTabs(raw: unknown): EnvTab[] {
+  if (!Array.isArray(raw)) return [defaultTab()]
+  const tabs = raw.filter(isEnvTab)
+  if (!tabs.some((t) => t.id === DEFAULT_ENV_TAB_ID)) {
+    tabs.unshift(defaultTab())
+  }
+  return tabs.length ? tabs : [defaultTab()]
+}
+
+function normalizePairs(raw: unknown): EnvPair[] {
+  if (!Array.isArray(raw)) return []
+  return raw.filter(
+    (p) =>
+      p &&
+      typeof p === 'object' &&
+      !Array.isArray(p) &&
+      typeof (p as EnvPair).key === 'string' &&
+      typeof (p as EnvPair).value === 'string',
+  ) as EnvPair[]
+}
+
+function normalizeQueues(raw: unknown): StoredState['queues'] {
+  if (!raw || typeof raw !== 'object' || Array.isArray(raw)) return {}
+  const queues: StoredState['queues'] = {}
+  for (const [tabId, entry] of Object.entries(raw as Record<string, unknown>)) {
+    if (!entry || typeof entry !== 'object' || Array.isArray(entry)) continue
+    const e = entry as Record<string, unknown>
+    queues[tabId] = {
+      fileName: typeof e.fileName === 'string' ? e.fileName : null,
+      pairs: normalizePairs(e.pairs),
+    }
+  }
+  return queues
+}
+
+function normalizeStoredState(raw: unknown): StoredState {
+  if (!raw || typeof raw !== 'object' || Array.isArray(raw)) {
+    return { tabs: [defaultTab()], activeTabId: DEFAULT_ENV_TAB_ID, queues: {} }
+  }
+  const saved = raw as Record<string, unknown>
+  const tabs = normalizeTabs(saved.tabs)
+  const activeTabId =
+    typeof saved.activeTabId === 'string' && tabs.some((t) => t.id === saved.activeTabId)
+      ? saved.activeTabId
+      : DEFAULT_ENV_TAB_ID
+  return {
+    tabs,
+    activeTabId,
+    queues: normalizeQueues(saved.queues),
+  }
+}
+
 export const useEnvTabsStore = defineStore('envTabs', () => {
   const tabs = ref<EnvTab[]>([defaultTab()])
   const activeTabId = ref(DEFAULT_ENV_TAB_ID)
@@ -39,14 +102,14 @@ export const useEnvTabsStore = defineStore('envTabs', () => {
   async function load() {
     try {
       const result = await chrome.storage.local.get(STORAGE_KEY)
-      const saved = result[STORAGE_KEY] as StoredState | undefined
-      if (saved) {
-        tabs.value = saved.tabs?.length ? saved.tabs : [defaultTab()]
-        activeTabId.value = saved.activeTabId ?? DEFAULT_ENV_TAB_ID
-        queues.value = saved.queues ?? {}
-      }
+      const saved = normalizeStoredState(result[STORAGE_KEY])
+      tabs.value = saved.tabs
+      activeTabId.value = saved.activeTabId
+      queues.value = saved.queues
     } catch {
-      /* ignore */
+      tabs.value = [defaultTab()]
+      activeTabId.value = DEFAULT_ENV_TAB_ID
+      queues.value = {}
     }
     loaded.value = true
   }
@@ -56,7 +119,12 @@ export const useEnvTabsStore = defineStore('envTabs', () => {
     const payload: StoredState = {
       tabs: tabs.value.map((t) => ({ ...t })),
       activeTabId: activeTabId.value,
-      queues: { ...queues.value },
+      queues: Object.fromEntries(
+        Object.entries(queues.value).map(([id, q]) => [
+          id,
+          { fileName: q.fileName, pairs: q.pairs.map((p) => ({ ...p })) },
+        ]),
+      ),
     }
     try {
       await chrome.storage.local.set({ [STORAGE_KEY]: payload })
