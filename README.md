@@ -178,4 +178,4 @@ Dúvidas: [danielmartinsjob@gmail.com](mailto:danielmartinsjob@gmail.com)
 
 ## Licença
 
-![License](https://img.shields.io/badge/License-GPL-yellow?style=for-the-badge)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue?style=for-the-badge)](./LICENSE)
