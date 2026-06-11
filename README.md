@@ -9,13 +9,15 @@
   direto na página <strong>CI/CD → Variables</strong> do GitLab.
 </p>
 
-<p align="left">
+<p align="center">
   <img src="https://img.shields.io/badge/VUE-4FC08D?style=for-the-badge&logo=vuedotjs&logoColor=white" />
   <img src="https://img.shields.io/badge/TYPESCRIPT-3178C6?style=for-the-badge&logo=typescript&logoColor=white" />
   <img src="https://img.shields.io/badge/VITE-646CFF?style=for-the-badge&logo=vite&logoColor=white" />
+  <br />
   <img src="https://img.shields.io/badge/TailwindCss-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white" />
   <img src="https://img.shields.io/badge/PINIA-yellow?style=for-the-badge&logo=vue.js&logoColor=white" />
   <img src="https://img.shields.io/badge/CHROME_EXTENSION-4285F4?style=for-the-badge&logo=googlechrome&logoColor=white" />
+  <br />
   <img src="https://img.shields.io/badge/GITLAB-FC6D26?style=for-the-badge&logo=gitlab&logoColor=white" />
   <img src="https://img.shields.io/badge/DOCUSAURUS-3ECC5F?style=for-the-badge&logo=docusaurus&logoColor=white" />
 </p>
@@ -29,6 +31,13 @@
     <img src="https://img.shields.io/badge/Documentação-0B4692?style=for-the-badge" alt="Ir para documentação" />
   </a>
 </p>
+
+- [Introdução](https://dvizioon.github.io/VIZIOON-LABENVIRONMENTS/docs/intro)
+- [Instalação](https://dvizioon.github.io/VIZIOON-LABENVIRONMENTS/docs/instalacao)
+- [Navegadores](https://dvizioon.github.io/VIZIOON-LABENVIRONMENTS/docs/navegadores)
+- [Guia de variáveis](https://dvizioon.github.io/VIZIOON-LABENVIRONMENTS/docs/guia/variaveis)
+- [Versões](https://dvizioon.github.io/VIZIOON-LABENVIRONMENTS/docs/versoes)
+- [Privacidade](https://dvizioon.github.io/VIZIOON-LABENVIRONMENTS/docs/privacidade)
 
 ---
 
@@ -162,15 +171,6 @@ VIZIOON-LABENVIRONMENTS/
 | `npm run build` | Build de produção → pasta `dist` |
 | `cd website && npm start` | Documentação local |
 | `cd website && npm run build` | Build do site para GitHub Pages |
-
-## Documentação
-
-- [Introdução](https://dvizioon.github.io/VIZIOON-LABENVIRONMENTS/docs/intro)
-- [Instalação](https://dvizioon.github.io/VIZIOON-LABENVIRONMENTS/docs/instalacao)
-- [Navegadores](https://dvizioon.github.io/VIZIOON-LABENVIRONMENTS/docs/navegadores)
-- [Guia de variáveis](https://dvizioon.github.io/VIZIOON-LABENVIRONMENTS/docs/guia/variaveis)
-- [Versões](https://dvizioon.github.io/VIZIOON-LABENVIRONMENTS/docs/versoes)
-- [Privacidade](https://dvizioon.github.io/VIZIOON-LABENVIRONMENTS/docs/privacidade)
 
 ## Contato
 
