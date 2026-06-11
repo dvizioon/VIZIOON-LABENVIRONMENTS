@@ -35,7 +35,7 @@ function isEnvTab(value: unknown): value is EnvTab {
   )
 }
 
-function normalizeTabs(raw: unknown): EnvTab[] {
+export function normalizeTabs(raw: unknown): EnvTab[] {
   if (!Array.isArray(raw)) return [defaultTab()]
   const tabs = raw.filter(isEnvTab)
   if (!tabs.some((t) => t.id === DEFAULT_ENV_TAB_ID)) {
@@ -56,7 +56,7 @@ function normalizePairs(raw: unknown): EnvPair[] {
   ) as EnvPair[]
 }
 
-function normalizeQueues(raw: unknown): StoredState['queues'] {
+export function normalizeQueues(raw: unknown): StoredState['queues'] {
   if (!raw || typeof raw !== 'object' || Array.isArray(raw)) return {}
   const queues: StoredState['queues'] = {}
   for (const [tabId, entry] of Object.entries(raw as Record<string, unknown>)) {
@@ -70,7 +70,7 @@ function normalizeQueues(raw: unknown): StoredState['queues'] {
   return queues
 }
 
-function normalizeStoredState(raw: unknown): StoredState {
+export function normalizeStoredState(raw: unknown): StoredState {
   if (!raw || typeof raw !== 'object' || Array.isArray(raw)) {
     return { tabs: [defaultTab()], activeTabId: DEFAULT_ENV_TAB_ID, queues: {} }
   }

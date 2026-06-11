@@ -6,7 +6,6 @@
 
 <p align="center">
   Extensão para <strong>Chrome</strong> e <strong>Edge</strong> que importa variáveis de ambiente (<code>.env</code>)<br />
-  direto na página <strong>CI/CD → Variables</strong> do GitLab.
 </p>
 
 <p align="center">
@@ -168,6 +167,8 @@ VIZIOON-LABENVIRONMENTS/
 | Comando | Descrição |
 |---------|-----------|
 | `npm run dev` | Extensão em modo desenvolvimento (Vite) |
+| `npm test` | Testes unitários (Vitest) |
+| `npm run verify` | Testes + checagem TypeScript da extensão |
 | `npm run build` | Build de produção → pasta `dist` |
 | `cd website && npm start` | Documentação local |
 | `cd website && npm run build` | Build do site para GitHub Pages |
