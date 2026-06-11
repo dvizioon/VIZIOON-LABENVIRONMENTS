@@ -10,6 +10,7 @@ const FOOTER_ICONS: Record<string, string> = {
   Navegadores: 'ph:browser-fill',
   Versões: 'ph:tag-fill',
   Privacidade: 'ph:shield-check-fill',
+  GitHub: 'simple-icons:github',
   'E-mail': 'ph:envelope-fill',
 }
 

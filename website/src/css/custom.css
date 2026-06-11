@@ -628,6 +628,38 @@
   color: #1b75c1;
 }
 
+.navbar-github-link {
+  display: flex;
+  align-items: center;
+  padding: 0 0.5rem;
+}
+
+.navbar-github-link__label {
+  display: inline-flex;
+  align-items: center;
+}
+
+.navbar-github-link__icon {
+  width: 1.35rem;
+  height: 1.35rem;
+}
+
+.navbar-github-link:hover .navbar-github-link__icon {
+  color: #1b75c1;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
 .footer-link-with-icon {
   display: inline-flex;
   align-items: center;

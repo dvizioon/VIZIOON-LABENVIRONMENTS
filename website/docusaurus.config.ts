@@ -68,6 +68,12 @@ const config: Config = {
           label: 'Versões',
         },
         {
+          href: `https://github.com/${org}/${project}`,
+          position: 'right',
+          className: 'navbar-github-link',
+          'aria-label': 'Repositório no GitHub',
+        },
+        {
           href: 'mailto:danielmartinsjob@gmail.com',
           label: 'Contato',
           position: 'right',
@@ -90,6 +96,10 @@ const config: Config = {
         {
           title: 'Contato',
           items: [
+            {
+              label: 'GitHub',
+              href: `https://github.com/${org}/${project}`,
+            },
             {
               label: 'E-mail',
               href: 'mailto:danielmartinsjob@gmail.com',
