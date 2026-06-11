@@ -77,6 +77,7 @@ const config: Config = {
           href: 'mailto:danielmartinsjob@gmail.com',
           label: 'Contato',
           position: 'right',
+          className: 'navbar-contato-link',
         },
       ],
     },

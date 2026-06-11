@@ -628,15 +628,20 @@
   color: #1b75c1;
 }
 
-.navbar-github-link {
-  display: flex;
+.navbar-github-link,
+.navbar-contato-link {
+  display: inline-flex;
   align-items: center;
-  padding: 0 0.5rem;
+}
+
+.navbar-github-link {
+  padding: 0 0.35rem 0 0.15rem;
 }
 
 .navbar-github-link__label {
   display: inline-flex;
   align-items: center;
+  line-height: 1;
 }
 
 .navbar-github-link__icon {
