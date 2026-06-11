@@ -122,7 +122,8 @@ chrome.runtime.onMessage.addListener((message, _sender, sendResponse) => {
       const tab =
         message.tab === 'settings' ||
         message.tab === 'versions' ||
-        message.tab === 'about'
+        message.tab === 'about' ||
+        message.tab === 'history'
           ? message.tab
           : 'variables'
       try {

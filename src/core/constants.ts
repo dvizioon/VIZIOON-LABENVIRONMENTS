@@ -1,5 +1,5 @@
 export const APP_NAME = 'VIZIOON'
-export const APP_TAGLINE = 'Lab Environments'
+export const APP_TAGLINE = 'LAB ENVIRONMENTS'
 
 /** Paleta oficial — docs/palette.png */
 export const BRAND_BLUE_DARK = '#0B4692'

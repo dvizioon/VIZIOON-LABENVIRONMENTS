@@ -2,7 +2,7 @@ import { defineManifest } from '@crxjs/vite-plugin'
 
 export default defineManifest({
   manifest_version: 3,
-  name: 'VIZIOON Lab Environments',
+  name: 'VIZIOON LAB ENVIRONMENTS',
   description: 'Importe variáveis de ambiente GitLab CI/CD direto do navegador.',
   version: '0.1.0',
   permissions: ['storage', 'tabs'],
@@ -20,7 +20,7 @@ export default defineManifest({
     128: 'public/android-chrome-128x128.png',
   },
   action: {
-    default_title: 'VIZIOON Lab Environments',
+    default_title: 'VIZIOON LAB ENVIRONMENTS',
     default_popup: 'src/popup/index.html',
     default_icon: {
       16: 'public/favicon-16x16.png',

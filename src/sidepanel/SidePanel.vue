@@ -5,12 +5,15 @@ import ImportEnvView from '@/components/ImportEnvView.vue'
 import SettingsView from '@/views/SettingsView.vue'
 import VersionsView from '@/views/VersionsView.vue'
 import AboutView from '@/views/AboutView.vue'
+import HistoryView from '@/views/HistoryView.vue'
+import { useEnvTabsStore } from '@/stores/envTabsStore'
 import ToastContainer from '@/components/ToastContainer.vue'
 import VzIcon from '@/components/VzIcon.vue'
 import { useSettingsStore } from '@/stores/settingsStore'
 const emit = defineEmits<{ close: [] }>()
 
 const settings = useSettingsStore()
+const envTabs = useEnvTabsStore()
 const activeTab = ref('variables')
 const versionsKey = ref(0)
 
@@ -18,6 +21,7 @@ const logoUrl = computed(() => chrome.runtime.getURL('public/logo.svg'))
 
 const tabs: TabItem[] = [
   { id: 'variables', label: 'Variáveis', icon: 'ph:squares-four-fill' },
+  { id: 'history', label: 'Histórico', icon: 'ph:clock-counter-clockwise-fill' },
   { id: 'settings', label: 'Config', icon: 'ph:gear-six-fill' },
   { id: 'versions', label: 'Versões', icon: 'ph:tag-fill' },
   { id: 'about', label: 'Sobre', icon: 'ph:info-fill' },
@@ -32,8 +36,8 @@ function onSetTab(e: Event) {
   if (tabs.some((t) => t.id === tab)) activeTab.value = tab
 }
 
-onMounted(() => {
-  settings.load()
+onMounted(async () => {
+  await Promise.all([settings.load(), envTabs.load()])
   window.addEventListener('vizioon:set-tab', onSetTab)
 })
 
@@ -48,7 +52,7 @@ onUnmounted(() => {
       <img :src="logoUrl" alt="VIZIOON" class="vz-header__logo" />
       <div class="vz-header__text">
         <h1>VIZIOON</h1>
-        <p>Lab Environments</p>
+        <p>LAB ENVIRONMENTS</p>
       </div>
       <button
         type="button"
@@ -66,6 +70,9 @@ onUnmounted(() => {
     <div class="vz-panels">
       <div v-show="activeTab === 'variables'" class="vz-panel-wrap" role="tabpanel">
         <ImportEnvView />
+      </div>
+      <div v-show="activeTab === 'history'" class="vz-panel-wrap" role="tabpanel">
+        <HistoryView />
       </div>
       <div v-show="activeTab === 'settings'" class="vz-panel-wrap" role="tabpanel">
         <SettingsView />

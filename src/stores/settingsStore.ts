@@ -9,7 +9,7 @@ export interface AppSettings {
 }
 
 const defaults: AppSettings = {
-  autoSave: false,
+  autoSave: true,
   floatingButtonEnabled: true,
 }
 

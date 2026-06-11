@@ -1,12 +1,21 @@
-# VIZIOON Lab Environments
+# VIZIOON LAB ENVIRONMENTS
 
-Extensão Chrome para importar variáveis de ambiente (`.env`) na página **CI/CD → Variables** do GitLab.
+Extensão Chrome/Edge para importar variáveis de ambiente (`.env`) na página **CI/CD → Variables** do GitLab.
 
 ## Documentação
 
-- [Política de Privacidade](https://dvizioon.github.io/VIZIOON-LABENVIRONMENTS/privacidade.html)
+Site (Docusaurus): [dvizioon.github.io/VIZIOON-LABENVIRONMENTS](https://dvizioon.github.io/VIZIOON-LABENVIRONMENTS/)
 
-## Desenvolvimento
+- [Documentação](https://dvizioon.github.io/VIZIOON-LABENVIRONMENTS/docs/intro) — guia de uso
+- [Política de Privacidade](https://dvizioon.github.io/VIZIOON-LABENVIRONMENTS/docs/privacidade) — Chrome Web Store
+
+Desenvolvimento local do site:
+
+```bash
+cd website && npm install && npm start
+```
+
+## Extensão — desenvolvimento
 
 ```bash
 npm install

@@ -732,61 +732,309 @@ body {
 
 /* About */
 .vz-panel--about {
-  gap: 16px;
+  gap: 20px;
+  position: relative;
 }
 
-.vz-about-copy {
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-  padding: 16px;
-  background: var(--vz-surface);
-  border: 1px solid var(--vz-border);
+.vz-about-hero {
+  position: relative;
+  overflow: hidden;
   border-radius: var(--vz-radius);
+  background: #ffffff;
+  border: 1px solid var(--vz-border);
+  color: #424240;
+  padding: 28px 20px 24px;
+  text-align: center;
+  box-shadow: 0 2px 8px rgba(11, 70, 146, 0.08);
 }
 
-.vz-about-lead {
+.vz-about-hero__watermark {
+  position: absolute;
+  width: 180px;
+  height: auto;
+  right: -24px;
+  bottom: -20px;
+  opacity: 0.07;
+  pointer-events: none;
+}
+
+.vz-about-hero__content {
+  position: relative;
+  z-index: 1;
+}
+
+.vz-about-hero__logo {
+  width: 56px;
+  height: 56px;
+  margin: 0 auto 12px;
+  background: #ffffff;
+  border: 1px solid var(--vz-border);
+  border-radius: 12px;
+  padding: 8px;
+  object-fit: contain;
+  box-shadow: 0 2px 6px rgba(11, 70, 146, 0.12);
+}
+
+.vz-about-hero__name {
   margin: 0;
-  font-size: 1.05rem;
+  font-size: 1.35rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: #0b4692;
+}
+
+.vz-about-hero__tagline {
+  margin: 4px 0 14px;
+  font-size: 0.82rem;
+  color: #1b75c1;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
   font-weight: 600;
+}
+
+.vz-about-hero__desc {
+  margin: 0 auto 12px;
+  max-width: 300px;
+  font-size: 0.92rem;
   line-height: 1.55;
-  color: var(--vz-text);
+  color: #424240;
 }
 
-.vz-about-points {
-  margin: 0;
-  padding-left: 1.25rem;
-  font-size: 0.98rem;
-  line-height: 1.65;
-  color: var(--vz-text);
+.vz-about-hero__version {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 600;
+  padding: 3px 10px;
+  border-radius: 999px;
+  color: #0b4692;
+  background: #e8f2fa;
+  border: 1px solid #c5daf0;
 }
 
-.vz-about-points li + li {
-  margin-top: 8px;
+#vizioon-sidebar .vz-about-hero,
+#vizioon-sidebar .vz-about-hero h2,
+#vizioon-sidebar .vz-about-hero p,
+#vizioon-sidebar .vz-about-hero span {
+  color: inherit;
 }
 
-.vz-about-meta {
-  margin: 0;
-  font-size: 0.85rem;
+#vizioon-sidebar .vz-about-hero__name {
+  color: #0b4692;
+}
+
+#vizioon-sidebar .vz-about-hero__tagline {
+  color: #1b75c1;
+}
+
+#vizioon-sidebar .vz-about-hero__desc {
+  color: #424240;
+}
+
+.vz-about-designer {
+  text-align: center;
+  padding: 4px 0;
+}
+
+.vz-about-designer__label {
+  margin: 0 0 4px;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--vz-text-muted);
+}
+
+.vz-about-designer__name {
+  margin: 0 0 6px;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--vz-blue);
 }
 
 .vz-about-link {
   color: var(--vz-blue-accent);
   word-break: break-all;
+  font-size: 0.85rem;
 }
 
 .vz-about-github {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 6px;
+  width: 100%;
   font-size: 0.88rem;
   font-weight: 600;
   color: var(--vz-text);
   text-decoration: none;
+  padding: 10px;
+  border: 1px solid var(--vz-border);
+  border-radius: var(--vz-radius);
+  background: var(--vz-surface);
 }
 
 .vz-about-github:hover {
   color: var(--vz-blue-accent);
+  border-color: var(--vz-blue-accent);
+}
+
+/* Histórico */
+.vz-panel--history {
+  gap: 12px;
+}
+
+.vz-history-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+
+.vz-history-toolbar .vz-panel__title {
+  flex: 1;
+  min-width: 120px;
+  margin: 0;
+}
+
+.vz-history-toolbar__actions {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.vz-history-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.vz-history-item {
+  padding: 12px;
+  border: 1px solid var(--vz-border);
+  border-radius: var(--vz-radius);
+  background: var(--vz-surface);
+}
+
+.vz-history-item__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 6px;
+}
+
+.vz-history-item__head time {
+  font-size: 0.78rem;
+  color: var(--vz-text-muted);
+}
+
+.vz-history-item__title {
+  margin: 0 0 4px;
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--vz-blue);
+}
+
+.vz-history-item__meta {
+  margin: 0 0 2px;
+  font-size: 0.82rem;
+}
+
+.vz-history-item__url {
+  margin: 0 0 8px;
+  font-size: 0.75rem;
+  color: var(--vz-text-muted);
+  word-break: break-all;
+}
+
+.vz-history-item__stats {
+  margin: 0 0 10px;
+  font-size: 0.8rem;
+  color: var(--vz-text-muted);
+}
+
+.vz-history-item__saved {
+  color: var(--vz-success);
+  font-weight: 600;
+}
+
+.vz-history-item__draft {
+  color: var(--vz-text-muted);
+  font-style: italic;
+}
+
+.vz-history-item__expand {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin: 0 0 10px;
+  padding: 0;
+  border: none;
+  background: none;
+  font: 600 0.8rem/1.2 var(--vz-font);
+  color: var(--vz-blue-accent);
+  cursor: pointer;
+}
+
+.vz-history-item__expand:hover {
+  color: var(--vz-blue);
+}
+
+.vz-history-vars {
+  list-style: none;
+  margin: 0 0 12px;
+  padding: 0;
+  max-height: 160px;
+  overflow-y: auto;
+  border: 1px solid var(--vz-border);
+  border-radius: var(--vz-radius);
+  background: var(--vz-bg);
+}
+
+.vz-history-vars__row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 10px;
+  font-size: 0.78rem;
+  border-bottom: 1px solid var(--vz-border);
+}
+
+.vz-history-vars__row:last-child {
+  border-bottom: none;
+}
+
+.vz-history-vars__key {
+  flex: 1;
+  min-width: 0;
+  font-weight: 600;
+  color: var(--vz-blue);
+  word-break: break-all;
+}
+
+.vz-history-vars__value {
+  color: var(--vz-text-muted);
+  font-family: var(--vz-mono);
+  font-size: 0.72rem;
+}
+
+.vz-env-tabs__label {
+  font-weight: 600;
+}
+
+.vz-history-item__actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.vz-history-item__actions .vz-btn--primary {
+  padding: 6px 12px;
+  font-size: 0.8rem;
+}
+
+.vz-empty--history {
+  padding: 32px 16px;
+  text-align: center;
 }
 
 /* Injetado na página — botão flutuante + sidebar (igual MDEEPDOC) */

@@ -3,6 +3,7 @@ import { ref, computed, watch, onMounted } from 'vue'
 import { storeToRefs } from 'pinia'
 import { useImportStore } from '@/stores/importStore'
 import { useEnvTabsStore } from '@/stores/envTabsStore'
+import { useHistoryStore } from '@/stores/historyStore'
 import { useSettingsSync } from '@/composables/useSettingsSync'
 import { useGitlabPage } from '@/composables/useGitlabPage'
 import { useToast } from '@/composables/useToast'
@@ -13,6 +14,7 @@ import VzIcon from './VzIcon.vue'
 
 const importStore = useImportStore()
 const envTabs = useEnvTabsStore()
+const historyStore = useHistoryStore()
 const { show } = useToast()
 const settings = useSettingsSync()
 const { autoSave } = storeToRefs(settings)
@@ -43,7 +45,7 @@ function loadTabQueue() {
 watch(activeTabId, () => loadTabQueue())
 
 onMounted(async () => {
-  await envTabs.load()
+  await Promise.all([envTabs.load(), historyStore.load()])
   loadTabQueue()
 })
 
@@ -54,7 +56,7 @@ function readFile(file: File) {
   }
 
   const reader = new FileReader()
-  reader.onload = (e) => {
+  reader.onload = async (e) => {
     const content = e.target?.result as string
     importStore.loadFromContent(file.name, content)
 
@@ -64,6 +66,19 @@ function readFile(file: File) {
     }
 
     persistQueue()
+
+    if (importStore.pairCount > 0) {
+      await historyStore.addEntry({
+        fileName: file.name,
+        pageTitle: pageContext.value.title || 'GitLab Variables',
+        pageUrl: window.location.href,
+        envTabId: activeTabId.value,
+        envTabLabel: activeTab.value.label,
+        pairs: importStore.pairs.map((p) => ({ ...p })),
+        importedCount: 0,
+        saved: false,
+      })
+    }
 
     if (importStore.parseErrors.length) {
       show(`${importStore.parseErrors.length} linha(s) com erro`, 'info')
@@ -161,6 +176,19 @@ async function applyToPage() {
       (key) => applyTabPrefix(tab, key),
     )
 
+    if (result.imported > 0) {
+      await historyStore.addEntry({
+        fileName: importStore.fileName,
+        pageTitle: pageContext.value.title || 'GitLab Variables',
+        pageUrl: window.location.href,
+        envTabId: activeTabId.value,
+        envTabLabel: tab.label,
+        pairs: importStore.pairs.map((p) => ({ ...p })),
+        importedCount: result.imported,
+        saved: !!result.saved,
+      })
+    }
+
     if (result.success) {
       const msg = result.saved
         ? `${result.imported} variáveis salvas!`
@@ -169,6 +197,8 @@ async function applyToPage() {
       importStore.clearAll()
       envTabs.clearQueue(activeTabId.value)
       await refresh()
+    } else if (result.imported > 0) {
+      show(`${result.imported} enviada(s), ${result.failed.length} falharam`, 'error')
     } else {
       show(`${result.failed.length} variável(is) falharam`, 'error')
     }
@@ -250,21 +280,25 @@ watch(
       </div>
     </div>
 
-    <label
+    <div
       class="vz-dropzone"
+      role="button"
+      tabindex="0"
       :class="{ 'vz-dropzone--active': isDragging }"
       @dragover="onDragOver"
       @dragleave="onDragLeave"
       @drop.prevent="onDrop"
       @click="openPicker"
+      @keydown.enter.prevent="openPicker"
+      @keydown.space.prevent="openPicker"
     >
-      <input ref="fileInput" type="file" accept=".env,.env.*,text/plain" style="display: none" @change="onFileChange" />
+      <input ref="fileInput" type="file" accept=".env,.env.*,text/plain" hidden @change="onFileChange" />
       <VzIcon icon="ph:file-arrow-up-bold" :size="28" class="vz-dropzone__icon" />
       <p class="vz-dropzone__title">
         {{ isDragging ? 'Solte o .env aqui' : 'Arraste ou clique para selecionar .env' }}
       </p>
       <p class="vz-dropzone__hint">KEY=VALUE · # comentários</p>
-    </label>
+    </div>
 
     <div v-if="importStore.parseErrors.length" class="vz-errors">
       <ul>

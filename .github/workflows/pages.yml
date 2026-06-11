@@ -23,12 +23,21 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+      - name: Configurar Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+          cache-dependency-path: website/package-lock.json
+      - name: Build Docusaurus
+        run: npm ci && npm run build
+        working-directory: website
       - name: Configurar GitHub Pages
         uses: actions/configure-pages@v4
       - name: Enviar artefato
         uses: actions/upload-pages-artifact@v3
         with:
-          path: website
+          path: website/build
       - name: Publicar
         id: deployment
         uses: actions/deploy-pages@v4

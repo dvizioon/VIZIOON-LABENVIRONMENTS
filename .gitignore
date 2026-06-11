@@ -4,4 +4,6 @@ dist
 .DS_Store
 data
 .env
-docs
+/docs
+agent
+agent-dev

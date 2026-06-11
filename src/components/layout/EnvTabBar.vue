@@ -50,8 +50,7 @@ function removeTab(id: string, e: Event) {
         @click="select(tab.id)"
       >
         <VzIcon :icon="tab.isDefault ? 'ph:house-simple-fill' : 'ph:cloud-fill'" :size="14" />
-        <span>{{ tab.label }}</span>
-        <span v-if="!tab.isDefault" class="vz-env-tabs__prefix">{{ tab.prefix }}*</span>
+        <span class="vz-env-tabs__label">{{ tab.label }}</span>
         <button
           v-if="!tab.isDefault"
           type="button"
@@ -79,7 +78,7 @@ function removeTab(id: string, e: Event) {
         v-model="newTabName"
         type="text"
         class="vz-env-tabs__input"
-        placeholder="ex: production"
+        placeholder="ex: Production"
         @keyup.enter="confirmAdd"
       />
       <button type="button" class="vz-btn vz-btn--primary" @click="confirmAdd">Criar</button>

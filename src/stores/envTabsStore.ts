@@ -1,5 +1,5 @@
 import { defineStore } from 'pinia'
-import { ref, computed } from 'vue'
+import { ref, computed, watch } from 'vue'
 import type { EnvPair } from '@/utils/parseEnv'
 import {
   DEFAULT_ENV_TAB_ID,
@@ -52,10 +52,11 @@ export const useEnvTabsStore = defineStore('envTabs', () => {
   }
 
   async function persist() {
+    if (!loaded.value) return
     const payload: StoredState = {
-      tabs: tabs.value,
+      tabs: tabs.value.map((t) => ({ ...t })),
       activeTabId: activeTabId.value,
-      queues: queues.value,
+      queues: { ...queues.value },
     }
     try {
       await chrome.storage.local.set({ [STORAGE_KEY]: payload })
@@ -63,6 +64,14 @@ export const useEnvTabsStore = defineStore('envTabs', () => {
       /* ignore */
     }
   }
+
+  watch(
+    [tabs, activeTabId, queues],
+    () => {
+      if (loaded.value) persist()
+    },
+    { deep: true },
+  )
 
   function setActiveTab(id: string) {
     activeTabId.value = id
