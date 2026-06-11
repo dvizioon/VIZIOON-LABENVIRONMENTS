@@ -1,19 +1,32 @@
-# VIZIOON LAB ENVIRONMENTS
+<p align="center">
+  <img src="./website/static/img/logo.svg" alt="VIZIOON" width="96" />
+</p>
 
-<img src="./website/static/img/screenshots/gitlab-variables-pagina.png" alt="GitLab CI/CD Variables com botão VIZIOON" />
+<h1 align="center">VIZIOON LAB ENVIRONMENTS</h1>
 
-![VUE](https://img.shields.io/badge/VUE-4FC08D?style=for-the-badge&logo=vuedotjs&logoColor=white)
-![TYPESCRIPT](https://img.shields.io/badge/TYPESCRIPT-3178C6?style=for-the-badge&logo=typescript&logoColor=white)
-![VITE](https://img.shields.io/badge/VITE-646CFF?style=for-the-badge&logo=vite&logoColor=white)
-![TAILWINDCSS](https://img.shields.io/badge/TailwindCss-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white)
-![PINIA](https://img.shields.io/badge/PINIA-yellow?style=for-the-badge&logo=vue.js&logoColor=white)
-![CHROME](https://img.shields.io/badge/CHROME_EXTENSION-4285F4?style=for-the-badge&logo=googlechrome&logoColor=white)
-![GITLAB](https://img.shields.io/badge/GITLAB-FC6D26?style=for-the-badge&logo=gitlab&logoColor=white)
-![DOCUSAURUS](https://img.shields.io/badge/DOCUSAURUS-3ECC5F?style=for-the-badge&logo=docusaurus&logoColor=white)
+<p align="center">
+  <a href="https://dvizioon.github.io/VIZIOON-LABENVIRONMENTS/docs/intro">
+    <img src="https://img.shields.io/badge/📖_Documentação-0B4692?style=for-the-badge" alt="Ir para documentação" />
+  </a>
+</p>
 
-Extensão para **Chrome** e **Edge** que importa variáveis de ambiente (`.env`) direto na página **CI/CD → Variables** do GitLab 🔧. Você arrasta o arquivo, revisa a fila na barra lateral, marca quais são protegidas e preenche o formulário do GitLab em poucos cliques.
+<p align="center">
+  <img src="https://img.shields.io/badge/VUE-4FC08D?style=for-the-badge&logo=vuedotjs&logoColor=white" alt="Vue" />
+  <img src="https://img.shields.io/badge/TYPESCRIPT-3178C6?style=for-the-badge&logo=typescript&logoColor=white" alt="TypeScript" />
+  <img src="https://img.shields.io/badge/VITE-646CFF?style=for-the-badge&logo=vite&logoColor=white" alt="Vite" />
+  <img src="https://img.shields.io/badge/TailwindCss-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white" alt="Tailwind" />
+  <img src="https://img.shields.io/badge/PINIA-yellow?style=for-the-badge&logo=vue.js&logoColor=white" alt="Pinia" />
+  <img src="https://img.shields.io/badge/CHROME_EXTENSION-4285F4?style=for-the-badge&logo=googlechrome&logoColor=white" alt="Chrome Extension" />
+  <img src="https://img.shields.io/badge/GITLAB-FC6D26?style=for-the-badge&logo=gitlab&logoColor=white" alt="GitLab" />
+  <img src="https://img.shields.io/badge/DOCUSAURUS-3ECC5F?style=for-the-badge&logo=docusaurus&logoColor=white" alt="Docusaurus" />
+</p>
 
-Funciona em qualquer instância GitLab em que você já consiga editar variáveis de CI/CD.
+<p align="center">
+  Extensão para <strong>Chrome</strong> e <strong>Edge</strong> que importa variáveis de ambiente (<code>.env</code>)<br />
+  direto na página <strong>CI/CD → Variables</strong> do GitLab.
+</p>
+
+---
 
 ## Funcionalidades
 
@@ -25,8 +38,6 @@ Funciona em qualquer instância GitLab em que você já consiga editar variávei
 - **Auto-save:** Salva cada variável no GitLab automaticamente ao preencher (configurável).
 - **Botão flutuante:** Liga ou desliga o botão VIZIOON nas páginas do GitLab pelo popup.
 - **Privacidade:** Aviso na primeira ativação; dados ficam só no seu navegador.
-
-<img src="./website/static/img/screenshots/aba-variaveis.png" alt="Barra lateral — aba Variáveis" />
 
 ## Tecnologias Utilizadas
 
@@ -43,7 +54,7 @@ Funciona em qualquer instância GitLab em que você já consiga editar variávei
 > A extensão **não envia** seus dados para servidores da VIZIOON. Tudo roda no navegador e no GitLab que você já usa.
 
 > [!NOTE]
-> Documentação completa: [dvizioon.github.io/VIZIOON-LABENVIRONMENTS](https://dvizioon.github.io/VIZIOON-LABENVIRONMENTS/)
+> Prints e guia passo a passo estão na [documentação](https://dvizioon.github.io/VIZIOON-LABENVIRONMENTS/docs/intro).
 
 > [!CAUTION]
 > Variáveis sensíveis do `.env` passam pela interface da extensão e pelo formulário do GitLab. Use apenas em ambientes e máquinas em que você confia.
@@ -105,13 +116,11 @@ VIZIOON-LABENVIRONMENTS/
 
 ### Usuário final (release)
 
-1. **Baixe a release** em [GitHub Releases](https://github.com/dvizioon/VIZIOON-LABENVIRONMENTS/releases) — versões com arquivo anexado estão prontas para instalar.
+1. **Baixe a release** em [GitHub Releases](https://github.com/dvizioon/VIZIOON-LABENVIRONMENTS/releases).
 2. **Extraia** o conteúdo do zip.
 3. Abra `chrome://extensions` (Chrome) ou `edge://extensions` (Edge).
 4. Ative **Modo do desenvolvedor**.
 5. **Carregar sem compactação** → selecione a pasta extraída.
-
-<img src="./website/static/img/screenshots/chrome-extensoes-carregar.png" alt="Carregar extensão no Chrome" />
 
 ### Desenvolvimento local
 
@@ -158,15 +167,6 @@ VIZIOON-LABENVIRONMENTS/
 - [Guia de variáveis](https://dvizioon.github.io/VIZIOON-LABENVIRONMENTS/docs/guia/variaveis)
 - [Versões](https://dvizioon.github.io/VIZIOON-LABENVIRONMENTS/docs/versoes)
 - [Privacidade](https://dvizioon.github.io/VIZIOON-LABENVIRONMENTS/docs/privacidade)
-
-## Screenshots
-
-<img src="./website/static/img/screenshots/importar-env-dropzone.png" alt="Importar .env" />
-<img src="./website/static/img/screenshots/fila-variaveis.png" alt="Fila de variáveis" />
-<img src="./website/static/img/screenshots/preencher-pagina.png" alt="Preencher na página" />
-<img src="./website/static/img/screenshots/abas-ambiente.png" alt="Abas de ambiente" />
-<img src="./website/static/img/screenshots/aba-historico.png" alt="Histórico" />
-<img src="./website/static/img/screenshots/popup-extensao.png" alt="Popup da extensão" />
 
 ## Contato
 

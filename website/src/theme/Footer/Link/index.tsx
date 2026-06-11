@@ -1,7 +1,8 @@
-import React from 'react'
+import React, { type ComponentProps } from 'react'
 import Original from '@theme-original/Footer/Link'
 import { Icon } from '@iconify/react'
-import type { Props } from '@theme/Footer/Link'
+
+type Props = ComponentProps<typeof Original>
 
 const FOOTER_ICONS: Record<string, string> = {
   Começar: 'ph:book-open-fill',

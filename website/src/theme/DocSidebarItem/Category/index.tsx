@@ -19,10 +19,12 @@ export default function DocSidebarItemCategory(props: Props): React.ReactNode {
   return (
     <Original
       {...props}
-      item={{
-        ...props.item,
-        label: <LabelWithIcon icon={icon} label={props.item.label} />,
-      }}
+      item={
+        {
+          ...props.item,
+          label: <LabelWithIcon icon={icon} label={props.item.label} />,
+        } as unknown as Props['item']
+      }
     />
   )
 }
