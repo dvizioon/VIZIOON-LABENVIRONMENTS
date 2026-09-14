@@ -4,7 +4,7 @@ export default defineManifest({
   manifest_version: 3,
   name: 'VIZIOON LAB ENVIRONMENTS',
   description: 'Importe variáveis de ambiente GitLab CI/CD direto do navegador.',
-  version: '0.1.1',
+  version: '0.1.2',
   permissions: ['storage', 'tabs', 'scripting'],
   host_permissions: ['*://*/*'],
   content_scripts: [

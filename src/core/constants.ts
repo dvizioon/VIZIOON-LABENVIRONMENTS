@@ -14,7 +14,7 @@ export const APP_DESCRIPTION_POINTS = [
   'Escolha quais entradas devem ficar protegidas antes de importar.',
   'Preencha a página de variáveis do projeto em poucos cliques.',
 ] as const
-export const APP_VERSION = '0.1.1'
+export const APP_VERSION = '0.1.2'
 
 export const DEVELOPER_EMAIL = 'danielmartinsjob@gmail.com'
 export const GITHUB_USER = 'dvizioon'

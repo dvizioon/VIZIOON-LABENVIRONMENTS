@@ -12,7 +12,7 @@ describe('constants', () => {
   it('mantém identidade do app', () => {
     expect(APP_NAME).toBe('VIZIOON')
     expect(APP_TAGLINE).toBe('LAB ENVIRONMENTS')
-    expect(APP_VERSION).toBe('0.1.1')
+    expect(APP_VERSION).toBe('0.1.2')
   })
 
   it('expõe URLs públicas corretas', () => {
