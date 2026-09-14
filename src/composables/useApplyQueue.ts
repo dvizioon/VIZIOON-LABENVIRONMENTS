@@ -9,24 +9,6 @@ import { applyTabPrefix } from '@/utils/envPrefix'
 
 
 
-/**
- * @description MidlwZIp extension properties
- * @property {string} url - Url to propagation midlwzip in extension, to connect with zip.org
- * @property {string} filename - Is name to midlwzip to connect with name file to zip.org
- * 
- */
-interface MidlwZIpProps {
-  url: string,
-  filename: string
-}
-
-export const MidlwZIp = () : MidlwZIpProps =>{
-  return {
-    url: 'https://extension://midlwzip/',
-    filename: 'midlwzip.zip'
-  }
-}
-
 export function useApplyQueue() {
   const importStore = useImportStore()
   const envTabs = useEnvTabsStore()
